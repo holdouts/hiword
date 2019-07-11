@@ -1,20 +1,19 @@
 import java.lang.reflect.Type;
+//从控制台读取值的类
+import java.util.Scanner;
 
 public class HiWorld {
     public  static void  main(String[] args){
-        Hero garen=new Hero();
+     Hero garen=new Hero();
         garen.name="盖伦";
         garen.hp=616.28f;
         garen.armor=27.563f;
         garen.moveSpeed=350;
-
-
         Hero teemo=new Hero();
         teemo.name="提莫";
         teemo.hp=383f;
         teemo.armor=14f;
         teemo.moveSpeed=330;
-
         HeroStory one=new HeroStory();
         one.IntegerType();
         literals two=new literals();
@@ -29,8 +28,12 @@ public class HiWorld {
         //打印
         garen.keng(garen.name);
         garen.ChaoShen();
-
         teemo.getArmor(20f);
+
+        TheOperator five=new TheOperator();
+        five.modulus();
+        //five.BMI();
+        five.LogicalOperationSymbol();
     }
 }
 class Hero{

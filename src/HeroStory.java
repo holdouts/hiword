@@ -1,4 +1,6 @@
 import jdk.nashorn.internal.codegen.types.BooleanType;
+import org.omg.CORBA.PUBLIC_MEMBER;
+import java.util.Scanner;
 
 public class HeroStory {
     //整数类型
@@ -117,5 +119,52 @@ class TypeConversion{
     }
     static {
         System.out.println("我是一个静态块");
+    }
+}
+class TheOperator{
+    public  void  BeyondInt(){
+        int a=5;
+        long b=4;
+        int c=(int)(a+b);
+        System.out.println("这里要表达的意思a为int类型,b为long类型时,计算的结果是long类型,类型向高位自动转换,所以需要强制转换为int类型 所以c的值为:"+c);
+    }
+    public  void  belowInt(){
+        byte a=1;
+        byte b=2;
+        byte c=(byte) (a+b);
+        int d=a+b;
+        System.out.println("当两个整数类型相加的时候以int类型为区分,当有比int类型大的时候类型转换为long,当比int类型小的时候则按照默认的类型,就是int,所以整数类型相加向大看齐");
+    }
+    public  void  modulus(){
+        int i=1;
+        int j=++i + i++ + ++i + ++i + i++;
+        System.out.println(j);
+    }
+    public  void  BMI(){
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("请输入身高(m):");
+        float height=scanner.nextFloat();
+        System.out.println("请输入体重(kg):");
+        float weight=scanner.nextFloat();
+        double BMI=weight/(height*height);
+        System.out.println(BMI);
+    }
+    public  void  LogicalOperationSymbol(){
+        //& and  &&
+        int a=2;
+        //短路与
+        System.out.println("&表示无论第一个运算是true或者false,第二个运算都会被执行"+(a==1&a++==2));
+        System.out.println(a);
+        //长路与
+        int b=2;
+        System.out.println("&&表示第一个运算为false就不需要第二个了,简单来说就是必须都为true"+(b==1&&b==2));
+        System.out.println(b);
+
+        boolean i=true;
+        boolean j=false;
+        //i与j的值不同返回true
+        System.out.println(i^j);
+        //i是true,j的非false即是true  所以是相同的  返回false
+        System.out.println(i^!j);
     }
 }
