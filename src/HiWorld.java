@@ -25,6 +25,7 @@ public class HiWorld {
         three.TypeConversionRes();
         three.HighConversionButton();
         three.homework();
+        three.finalRes(1);
         //打印
         garen.keng(garen.name);
         garen.ChaoShen();

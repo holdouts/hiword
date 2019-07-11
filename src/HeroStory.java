@@ -110,4 +110,12 @@ class TypeConversion{
         int c=(short) (a+b);
         System.out.println("强制转换的值:"+c);
     }
+
+    public final  void  finalRes(final int a){
+        System.out.println(a);
+        System.out.println("我是一个普通块");
+    }
+    static {
+        System.out.println("我是一个静态块");
+    }
 }
