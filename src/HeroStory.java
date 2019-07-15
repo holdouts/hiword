@@ -1,6 +1,12 @@
+import com.sun.org.apache.xpath.internal.operations.Variable;
 import jdk.nashorn.internal.codegen.types.BooleanType;
 import org.omg.CORBA.PUBLIC_MEMBER;
+import javax.swing.text.html.HTMLDocument;
+import java.io.Console;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
+
 
 public class HeroStory {
     //整数类型
@@ -147,7 +153,30 @@ class TheOperator{
         System.out.println("请输入体重(kg):");
         float weight=scanner.nextFloat();
         double BMI=weight/(height*height);
-        System.out.println(BMI);
+        if (BMI<18.5){
+            System.out.println("您的体重过轻:"+BMI);
+        }else if(BMI>=18.5&&BMI<24){
+            System.out.println("您的体重是正常范围:"+BMI);
+        }else if (BMI>=24&&BMI<27){
+            System.out.println("您的体重过重:"+BMI);
+        }
+        else if (BMI>=24&BMI<30){
+            System.out.println("您的体重轻度肥胖:"+BMI);
+        }
+        else if (BMI>=30&&BMI<35){
+            System.out.println("您的体重中度肥胖:"+BMI);
+        }else{
+            System.out.println("您的体重重度肥胖:"+BMI);
+        }
+        int years=scanner.nextInt();
+        System.out.println("请输入年份:");
+        if ((years%4==0&&years%100!=0)||(years%400==0)){
+            System.out.println(years+"年是闰年");
+        }else{
+            System.out.println(years+"年不是闰年");
+        }
+
+
     }
     public  void  LogicalOperationSymbol(){
         //& and  &&
@@ -166,5 +195,176 @@ class TheOperator{
         System.out.println(i^j);
         //i是true,j的非false即是true  所以是相同的  返回false
         System.out.println(i^!j);
+    }
+    public void Scanner(){
+        Scanner s=new Scanner(System.in);
+        float i=s.nextFloat();
+        System.out.println("读取的浮点数是:"+i);
+        //获取控制台的字符串
+        String h=s.nextLine();
+        String a=s.nextLine();
+        System.out.println("读取的字符串是:"+a);
+
+    }
+    public  void  BreakFor(){
+        boolean breakout=false;
+        for (int i=0;i<10;i++){
+            for(int j=0;j<10;j++){
+                System.out.println(i+":"+j);
+                if (0==j%2){
+                    breakout=true;
+                    break;
+                }
+            }
+            if (breakout){
+                break;
+            }
+        }
+    }
+    /*
+    *使用标签退出外部循环,
+     */
+    public void  BreakFor2(){
+        outloop:
+        for (int i = 0; i < 10; i++) {
+
+            for (int j = 0; j < 10; j++) {
+                System.out.println(i+":"+j);
+                if(0==j%2)
+                    break outloop; //如果是双数，结束外部循环
+            }
+        }
+    }
+    public  void  Array(){
+        int[] a=new int[5];
+        for (int i=0;i<5;i++){
+            a[i]=(int)(Math.random()*100);
+        }
+        int min=100;
+        for (int t=0;t<a.length;t++){
+            if (min>a[t]){
+                min=a[t];
+            }
+        }
+        for (int e=0;e<5;e++){
+            System.out.println(a[e]);
+        }
+        System.out.println("最小值是:"+min);
+           Arrays.sort(a);
+        System.out.println("最小值是:"+a[0]);
+    }
+    public  void  ReverseArray(){
+        int a[]=new int[10];
+        for (int i=0;i<10;i++){
+            a[i]=(int)(Math.random()*100);
+            System.out.println(a[i]);
+        }
+        System.out.println("----------------");
+        int q=a.length;
+        for (int e=0;e<q/2;e++){
+            //  1:为什么要除2,因为镜像反转是将首尾值都反转,所以会考虑到有中间值的情况
+            //  2:首先将首尾值相加赋值给首或者尾  都可以,看个人习惯
+            //  3:然后用总值减去尾值便是当前的尾值  这里已经开始替换了
+            //  4:此时用总值减去尾值就是首值
+            a[e]+=a[q-1-e];
+            a[q-1-e]=a[e]-a[q-1-e];
+            a[e]-=a[q-1-e];
+        }
+        for (int t=0;t<a.length;t++){
+            System.out.println(a[t]);
+        }
+    }
+}
+class  ComprehensivePractice{
+
+    /**
+     * 黄金分割点
+     */
+    public void  GoldenMean(){
+
+       for (int i=1;i<=20;i++){
+           for (int j=20;j>=1;j--){
+                if (i%2==0&&j%2==0){
+                    continue;
+                }else{
+                   // double t=(j/i)>0.618f?(j/i-0.618f);
+                }
+           }
+       }
+    }
+    /*
+    *水仙花
+     */
+    public  void  Daffodils(){
+
+    }
+
+    public void  Strong(){
+        int[] arr={-15,-20,-78,-12,-1,-26,-69};
+        int[] drr={1,2,3,4,6,7,8,9,10,11,123,145,164};
+        int[] crr=new int[(arr.length+drr.length)-1];
+        System.arraycopy(arr,0,crr,0,arr.length);
+        int t=crr.length-(crr.length-arr.length);
+        System.arraycopy(drr,0,crr,t-1,drr.length);
+        for (int e:crr){
+            System.out.println(e);
+        }
+        //copy数组
+       int[] er= Arrays.copyOfRange(arr,0,3);
+        //转换为字符串
+
+
+
+
+
+        int max=-1;
+        for(int each:arr){
+          if (each>max){
+              max=each;
+          }
+        }
+     System.out.println(max);
+    }
+
+
+}
+class  SortingAlgorithm{
+    /*
+    *选择排序
+    * 思路:  用第一个数与第二个比较,如果比第二个大则位置互换,如果比第二个小则不动,进行下一次的比较
+     */
+    public void   SelectionSort(){
+        int[] arr={15,20,78,12,1,26,69};
+        for (int i=0;i<arr.length-1;i++){
+            for (int j=i+1;j<arr.length;j++){
+                if (arr[i]>arr[j]){
+                    int temp=arr[j];
+                    arr[j]=arr[i];
+                    arr[i]=temp;
+                }
+            }
+        }
+        for (int e=0;e<arr.length;e++){
+            System.out.println(arr[e]);
+        }
+    }
+    /*
+    *冒泡排序
+    *
+     */
+    public void   BubbleSort(){
+        int[] arr={15,20,78,12,1,26,69};
+        for (int i=0;i<arr.length;i++){
+            for (int j=0;j<arr.length-i-1;j++){
+                if (arr[j]>arr[j+1]){
+                    int temp=arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
+                }
+            }
+        }
+        for (int e=0;e<arr.length;e++){
+            System.out.println(arr[e]);
+        }
     }
 }

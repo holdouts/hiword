@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class HiWorld {
     public  static void  main(String[] args){
-     Hero garen=new Hero();
+/*     Hero garen=new Hero();
         garen.name="盖伦";
         garen.hp=616.28f;
         garen.armor=27.563f;
@@ -28,12 +28,23 @@ public class HiWorld {
         //打印
         garen.keng(garen.name);
         garen.ChaoShen();
-        teemo.getArmor(20f);
+        teemo.getArmor(20f);*/
 
         TheOperator five=new TheOperator();
-        five.modulus();
-        //five.BMI();
-        five.LogicalOperationSymbol();
+        //five.modulus();
+       // five.BMI();
+        //five.LogicalOperationSymbol();
+        //five.Scanner();
+        //five.BreakFor2();
+        //five.Array();
+        //five.ReverseArray();
+        ComprehensivePractice four=new ComprehensivePractice();
+        //four.GoldenMean();
+        four.Strong();
+        SortingAlgorithm six=new SortingAlgorithm();
+        //six.SelectionSort();
+        //six.BubbleSort();
+
     }
 }
 class Hero{
